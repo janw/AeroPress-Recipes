@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>AeroPress Recipes by ochococo</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>AeroPress Recipes</h1>
+          <h2>A new file format and collected recipes for AeroPress®.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ochococo/AeroPress-Recipes/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ochococo/AeroPress-Recipes/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ochococo/AeroPress-Recipes" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a id="aeropress-coffee-maker-recipe-file-format" class="anchor" href="#aeropress-coffee-maker-recipe-file-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>AeroPress® coffee maker Recipe File Format</h2>
+
+<p>Recipe file specification and collected recipes for AeroPress® coffee maker.</p>
+
+<h2>
+<a id="1-file-specification-aeropress-v10" class="anchor" href="#1-file-specification-aeropress-v10" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. File Specification (.aeropress) v1.0</h2>
+
+<p><strong>File extension:</strong> <code>.aeropress</code></p>
+
+<p><strong>Mime-type:</strong> <code>text/x-markdown</code></p>
+
+<p>Sample recipe:</p>
+
+<pre><code># Classic
+## Simplest and popular
+* Flip upside down
+* 15.0g Coffee (one scoop, espresso grind)
+* 10s Pour water 60.0g at 80.0°C 
+* 21s Stir (fast)
+* 16s Steep
+* Flip
+* 15s Plunge
+
+</code></pre>
+
+<h3>
+<a id="a-recipe-name-required" class="anchor" href="#a-recipe-name-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Recipe name (required)</h3>
+
+<pre><code># Classic
+</code></pre>
+
+<h3>
+<a id="b-detailed-info-required" class="anchor" href="#b-detailed-info-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Detailed info (required)</h3>
+
+<pre><code>## Simplest and popular
+</code></pre>
+
+<h3>
+<a id="c-steps" class="anchor" href="#c-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Steps</h3>
+
+<h4>
+<a id="-simple-step" class="anchor" href="#-simple-step" aria-hidden="true"><span class="octicon octicon-link"></span></a><g-emoji alias="dizzy" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4ab.png">💫</g-emoji> Simple step</h4>
+
+<pre><code>* Flip (upside down)
+</code></pre>
+
+<p><strong>Format:</strong></p>
+
+<pre><code>* [NAME] [optional: (DESCRIPTION)]
+</code></pre>
+
+<h4>
+<a id="-ingredient-step" class="anchor" href="#-ingredient-step" aria-hidden="true"><span class="octicon octicon-link"></span></a><g-emoji alias="honey_pot" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f36f.png">🍯</g-emoji> Ingredient step</h4>
+
+<pre><code>* 15.0g Coffee (one scoop, espresso grind)
+</code></pre>
+
+<p><strong>Format:</strong></p>
+
+<pre><code>* [GRAMS]g [NAME] [optional: (DESCRIPTION)]
+</code></pre>
+
+<h4>
+<a id="-timed-step" class="anchor" href="#-timed-step" aria-hidden="true"><span class="octicon octicon-link"></span></a><g-emoji alias="clock1" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f550.png">🕐</g-emoji> Timed step</h4>
+
+<pre><code>21s Stir (fast)
+</code></pre>
+
+<p><strong>Format:</strong></p>
+
+<pre><code>* [SECONDS]s [NAME] [optional: (DESCRIPTION)]
+</code></pre>
+
+<h4>
+<a id="-hybrid-step" class="anchor" href="#-hybrid-step" aria-hidden="true"><span class="octicon octicon-link"></span></a><g-emoji alias="droplet" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4a7.png">💧</g-emoji> Hybrid step</h4>
+
+<pre><code>10s Pour water (mineral) 60.0g at 80.0°C 
+</code></pre>
+
+<p><strong>Format:</strong></p>
+
+<pre><code>* [SECONDS]s [NAME] [optional: (DESCRIPTION)] [GRAMS]g at [TEMPERATURE]°C 
+</code></pre>
+
+<h2>
+<a id="2-index-file-format" class="anchor" href="#2-index-file-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Index file format</h2>
+
+<p>This file is used to enlist all available recipes in this repository. 
+Index file format is not part of the <code>.aeropress</code> file specification.</p>
+
+<p><strong>recipes.json</strong></p>
+
+<pre><code>{"recipes":[
+    {
+     "name":"Classic",
+     "description":"",
+     "md5":"file md5 hash",
+     "file":"./recipes/classic.aeropress"
+    }
+]
+</code></pre>
+        </section>
+
+        <footer>
+          AeroPress Recipes is maintained by <a href="https://github.com/ochococo">ochococo</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
